@@ -1,12 +1,17 @@
 <?php
+include_once("fonction.php");
+session_start();
+
+
 if(isset($_POST["btn_ok"]))
 {
-    include_once("fonction.php");
+    $_SESSION['post']=$_POST;
     $premier=[];
     $inferieur=[];
     $superieur=[];
     $tab=[];
     $val=$_POST["n"];
+    
     validNombre($val,"n",$tab);
     if(count($tab)==0)
     {
@@ -59,7 +64,7 @@ if(isset($_POST["btn_ok"]))
             $m++;
         }
         $l=0;
-        echo"Les sup sont : ";
+        echo"Les superieurs sont : <br>";
         while($l<count($superieur))
         {
             echo  "<br>$superieur[$l] ";
@@ -73,6 +78,9 @@ if(isset($_POST["btn_ok"]))
     }
     else
     {
+        $_SESSION['error']=$tab;
+        header("location:index.php");
+        exit();
         var_dump($tab);
     }
 
@@ -80,6 +88,7 @@ if(isset($_POST["btn_ok"]))
 else
 {
     header("location:indexa.php");
+    exit();
 }
 
 

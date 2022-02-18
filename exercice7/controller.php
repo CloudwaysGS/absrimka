@@ -1,9 +1,10 @@
 <?php
 
 include_once("fonction1.php");
-
+session_start();
 if(isset($_POST["btn_ok"]))
 {
+    $_SESSION['post']=$_POST;
     $jour=$_POST['jours'];
     $mois=$_POST['mois'];
     $annee=$_POST['annee'];
@@ -16,12 +17,15 @@ if(isset($_POST["btn_ok"]))
     if(count($tab)==0)
     {
         dateprecedent($jour,$mois,$annee);
-        echo"<br>";
+        echo"<br><br>";
         datesuivante($jour,$mois,$annee);
     }
     else
     {
-        var_dump($tab);
+        $_SESSION['error']=&$tab;
+        header('location:index.php'); 
+        exit();
+        //var_dump($tab);
     }
 
 }

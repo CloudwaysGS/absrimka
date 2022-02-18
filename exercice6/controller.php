@@ -12,18 +12,21 @@ if(isset($_POST['btn_ok']))
     validNombre($a,"a",$arrError);
     validNombre($b,"b",$arrError);
     validNombre($c,"c",$arrError);
-    if(count($arrError)==0){
-        $equationSecondDegre($a,$b,$c);
-    }else{
-        $_SESSION['error']=$arrError;
-        //var_dump( $_SESSION);
-        header('location:index.php'); 
-        exit();
+    if(count($arrError)==0)
+        {
+        equationSecondDegre($a,$b,$c);
+        }
+        else
+         {
+            $_SESSION['error']=$arrError;
+            //var_dump( $_SESSION);
+            header('location:index.php'); 
+            exit();
+         }
     }
-}
-else
-{
-    //Redirection
-    header('location:index.php');
-    exit();
+            else
+            {
+                //Redirection
+                 header('location:index.php');
+                exit();
 }

@@ -1,13 +1,14 @@
 <?php
 include_once("fonction.php");
 
-
+session_start();
 if(isset($_POST['btn_ok']))
 {
     $n= $_POST['n'];
     $arrError=[];
+    $_SESSION['post']=$_POST;
     validNombre($n,"n",$arrError);
-    estNombre($n);
+    
 
     if(count($arrError)==0)
     {
@@ -16,9 +17,9 @@ if(isset($_POST['btn_ok']))
     }
     else
     {
-
+        $_SESSION['error']=$arrError;
         header("location:index.php?ok");
-        var_dump($tab);
+        //var_dump($tab);
     }
 
 }else

@@ -2,10 +2,18 @@
 
 include_once("fonction.php");
 
-$a=rand(0,100);
-$b=rand(0,100);
-echo"$a"; echo" "; echo"$b";
+echo($a=rand(0,5));
+echo"<br> ";
+echo($b=rand(0,5));
+
 
 permute($a,$b,$c);
+echo"<br> ";
+
+
+echo($a=rand(0,5));
+echo"<br> ";
+echo($b=rand(0,5));
+
 
 ?>

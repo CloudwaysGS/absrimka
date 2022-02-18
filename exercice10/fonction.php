@@ -11,6 +11,13 @@ function validnombre($nbre,string $key,array &$arrError ):void
        if(!estNombre($nbre)){
            $arrError[$key]="Veullez saisir un nombre";
        }
+       else
+       {
+            if($nbre<0)
+            {
+                $arrError[$key]="Veullez saisir un nombre positif";
+            }
+       }
    }
    
 

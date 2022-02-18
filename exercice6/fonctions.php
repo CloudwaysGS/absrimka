@@ -17,22 +17,22 @@
     return empty($nbre); 
 }
 
-function equationSecondDegre(int|float $a,int|float $b,int|float $c){
+function equationSecondDegre($a,$b,$c){
         $delta=pow($b,2)-4*$c*$a;
 
         //<- :affectation +>  =
         //== ou ===
-        if($delta==0)
-        {
+        if($delta==0){
             echo "La solution est ".(-1*$b/2*$a);
         }
         
         
             if($delta>0)
             {
-                echo " la solution est x1=".(-1*$b+sqrt($delta)/2*$a);
-                echo"<br>";
-                echo " la solution est x1=".(-1*$b-sqrt($delta)/2*$a);
+                $x1=((-1*$b)-sqrt($delta))/(2*$a);
+                $x2=((-1*$b)+sqrt($delta))/(2*$a);
+                echo"la solution est X1= $x1 <br><br>";
+                echo"la solution est X2= $x2";
             }
             else
             {
@@ -40,4 +40,3 @@ function equationSecondDegre(int|float $a,int|float $b,int|float $c){
             }
         
 }
-?>

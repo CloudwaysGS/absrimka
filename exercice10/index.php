@@ -1,19 +1,42 @@
-<?php
-echo"<center><h1><b>Saisir un nombre:</b></h1>";
+<?php 
+   session_start();
 ?>
-<form action="controller.php" method="post">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Document</title>
+</head>
+<body>
+
+<div class="container">
+
+
+    <form action="controller.php" method="post" >
     <label for="">nombre</label>
-    <input type="text" name="n">
-    <input type="submit" name="btn_ok" value="valider">
-    <?php
-        if(isset($_GET['ok'])){
+    <input type="text" name="n" value="<?php if(!isset($_SESSION['error']['n']) && isset($_SESSION['post']) ) echo  $_SESSION['post']['n']; else ''?>">
+    <?php if(isset($_SESSION['error']['n'])):?>
+        <span style="color:red"><?php echo $_SESSION['error']['n'] ?></span>
+      <?php endif?>
+      
+    <input class="button" type="submit" name="btn_ok" value="valider">
 
-            echo "<p style=color:red;>Veuillez renseigner le champ</p>";
-        }
-    ?>
-
-
+    </form>
 
 
+</div>
+    
+</body>
+</html>
 
-</form>
+<?php 
+if(isset($_SESSION['error']))
+{
+    unset($_SESSION['error']);
+}
+
+?>

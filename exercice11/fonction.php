@@ -1,23 +1,23 @@
 <?php
 
 
-function validNombre($nbre,string $key,array &$arrError):void
+function validNombre($nbre,string $key,array &$tab):void
 {
     if(estVide($nbre))
     {
-        $arrError[$key]="saisir une valeur";
+        $tab[$key]="saisir une valeur";
     }
     if(estNombre($nbre))
     {
         if($nbre<20)
         {
-            $arrError[$key]="saisir un nombre superieur à 20";
+            $tab[$key]="saisir un nombre superieur à 20";
         }
         
     }
     else
     {
-        $arrError[$key]="saisir un nombre";
+        $tab[$key]="saisir un nombre";
     }
 
 }
